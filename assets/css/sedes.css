@@ -1,0 +1,180 @@
+ :root {
+     --azul: #001432;
+     --dourado: #D4AF37;
+     --branco: #ffffff;
+ }
+
+ body {
+     margin: 0;
+     padding: 0;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     color: var(--branco);
+     background-color: #000;
+     /* Usando o fundo padrão do seu portal */
+     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/backgrounds/fundo-sedes-m.webp");
+     background-attachment: fixed;
+     background-size: cover;
+     background-position: center;
+ }
+
+ .sedes-container {
+     padding: 40px 20px;
+     max-width: 500px;
+     margin: 0 auto;
+     text-align: center;
+ }
+
+ .titulo-principal {
+     color: var(--dourado);
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     margin-bottom: 30px;
+     font-size: 1.8rem;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+ }
+
+ .card-sede {
+     /* Fundo inicial: Azul claro semi-transparente */
+     background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+     background-size: cover;
+     background-position: center;
+
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border: 2px solid transparent;
+     border-radius: 20px;
+     padding: 30px 20px;
+     margin-bottom: 25px;
+
+     /* Transição suave */
+     transition: all 0.4s ease;
+     text-align: center;
+     overflow: hidden;
+ }
+
+ /* EFEITO AO PASSAR O MOUSE (HOVER) */
+ .card-sede:hover {
+     /* Muda para o Azul Escuro do portal com mais opacidade */
+     background-image: linear-gradient(rgba(0, 20, 50, 0.9), rgba(0, 20, 50, 0.9));
+
+     /* Sobe o card */
+     transform: translateY(-12px);
+
+     /* Borda dourada brilha */
+     border-color: var(--dourado);
+     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+ }
+
+ /* Animação do ícone da igreja no hover */
+ .card-sede:hover i.icon-church {
+     transform: scale(1.2);
+     filter: drop-shadow(0 0 8px var(--dourado));
+     color: var(--dourado);
+ }
+
+ /* Ajuste das cores internas no hover para garantir leitura */
+ .card-sede:hover h2 {
+     color: var(--dourado);
+ }
+
+ .card-sede:hover p {
+     color: #ffffff;
+ }
+
+ /* Transição para os elementos internos */
+ .card-sede i.icon-church,
+ .card-sede h2,
+ .card-sede p {
+     transition: all 0.3s ease;
+ }
+
+ .btn-mapa {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+     background: var(--branco);
+     color: var(--azul);
+     padding: 14px 28px;
+     border-radius: 50px;
+     text-decoration: none;
+     font-weight: bold;
+     font-size: 0.95rem;
+     text-transform: uppercase;
+     transition: 0.3s;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+ }
+
+ .btn-mapa:hover {
+     background: var(--dourado);
+     color: var(--branco);
+     transform: scale(1.05);
+ }
+
+ .btn-voltar {
+     display: inline-block;
+     margin-top: 30px;
+     color: var(--branco);
+     text-decoration: none;
+     font-size: 1rem;
+     opacity: 0.8;
+     transition: 0.3s;
+     padding: 10px 20px;
+ }
+
+ .btn-voltar:hover {
+     opacity: 1;
+     color: var(--dourado);
+ }
+
+ /* Ajuste para ícone de mapa dentro do botão */
+ .fa-location-dot {
+     font-size: 1.1rem;
+ }
+
+ /* ========================================
+   RESPONSIVIDADE: DESKTOP E LANDSCAPE
+======================================== */
+
+ /* 1. AJUSTE PARA DESKTOP (Telas acima de 900px) */
+ @media (min-width: 900px) {
+     body {
+         background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+             url("../img/backgrounds/fundo-sedes-d.webp") !important;
+         background-attachment: fixed;
+         background-size: cover;
+         background-position: center;
+     }
+
+ }
+
+ /* 2. AJUSTE PARA MOBILE DEITADO (Landscape - Altura menor que 500px) */
+ @media screen and (max-height: 500px) {
+    body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                          url("../img/backgrounds/fundo-sedes-d.webp") !important;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+ }
+
+@media screen and (max-height: 400px) and (max-width: 600px) {
+  body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                          url("../img/backgrounds/fundo-sedes-d.webp") !important;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+ }
+
+ @media (max-width: 350px) {
+    body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                          url("../img/backgrounds/fundo-sedes-m.webp") !important;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+}

@@ -1,0 +1,199 @@
+{
+    "portal_config": {
+        "nome_projeto": "Portal Ovelha do Bispo",
+        "ultima_atualizacao": "11/01/2026"
+    },
+    "campanhas": [
+        {
+            "titulo": "Campanha: Projetos Iluminados",
+            "fase_1": "Dia 1 ao 12",
+            "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrXiri3OCrhHy8hixBbnX0W7&si=MAyquWydTfq0xt6c",
+            "descricao": "Acompanhe a jornada completa dos Projetos Iluminados de Janeiro.",
+            "icone": "fa-lightbulb"
+        },
+        {
+            "titulo": "Campanha: Efatá",
+            "fase_1": "Dia 1 ao 3",
+            "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrW-xuPO8Ef5u1_MzvPNtBE-&si=7NA8CDLesMokgHqU",
+            "descricao": "Acompanhe a campanha do Efatá Janeiro 2026.",
+            "icone": "fa-door-open"
+        },
+        {
+            "titulo": "Campanha: Revelar o Oculto e Escondido",
+            "fase_1": "Dia 1 ao 7",
+            "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrVt7lUw-4P8azcQIb1McPH5&si=s_fW2D1NVTbHNgIW",
+            "descricao": "Acompanhe a Campanha Revelar o Oculto e Escondido/26.",
+            "icone": "fa-eye"
+        },
+        {
+            "titulo": "Campanha: Daniel",
+            "fase_1": "Dia 1 ao 21",
+            "link_playlist": "",
+            "descricao": "Acompanhe a Campanha de Daniel 2026.",
+            "icone": "fa-person"
+        }
+        
+    ],
+    "arquivo_mensal": {
+        "oracoes_dia": [
+            {
+                "mes": "Janeiro 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrVFQQubWQRpVZG--6piFArx&si=Tt-sxY_6MXVhEhBO"
+            },
+            {
+                "mes": "Fevereiro 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrWCvF093mi5FdsadHLAA2XW&si=kCZgszQ7faDJKWLg "
+            },
+            {
+                "mes": "Março 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrXwbDtSWdZEetylDaSotqk0&si=BNSH6d16vrKQ9Uzu "
+            },
+            {
+                "mes": "Abril 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrUnTlB3UM9wy-Y14V4_cr_U&si=6LNX_g6doYxZs8lm "
+            },
+            {
+                "mes": "Maio 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Junho 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Julho 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Agosto 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Setembro 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Outubro 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Novembro 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Dezembro 2026",
+                "link_playlist": " "
+            }
+        ],
+        "oracoes_18h": [
+            {
+                "mes": "Janeiro 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrWm5Ctvpuz8q6tP059YIjwB&si=_uJBtM6MTrwQwM4W"
+            },
+            {
+                "mes": "Fevereiro 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrWC1X6Z-Ju8FVc1xt0WBG_l&si=3W7maaWSpUa7L-gP "
+            },
+            {
+                "mes": "Março 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrUDyYtRDG9k8AFS7hTSHhaV&si=SLjKPCUf15AtPMua "
+            },
+            {
+                "mes": "Abril 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Maio 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Junho 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Julho 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Agosto 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Setembro 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Outubro 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Novembro 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Dezembro 2026",
+                "link_playlist": " "
+            }
+        ],
+        "meia_noite": [
+            {
+                "mes": "Janeiro 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrXJaOhibTDfCBhNe9WVzQQp&si=iaIX9rKTgrq8wCTd"
+            },
+            {
+                "mes": "Fevereiro 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrVx1RM-KfjJyLc9ECRA7-sd&si=O-5lv9p0LLfwFXQJ "
+            },
+            {
+                "mes": "Março 2026",
+                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrXhQQEhOf_uBh364Zrmr-xO&si=QIGVshWhwwPKuj06 "
+            },
+            {
+                "mes": "Abril 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Maio 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Junho 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Julho 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Agosto 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Setembro 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Outubro 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Novembro 2026",
+                "link_playlist": " "
+            },
+            {
+                "mes": "Dezembro 2026",
+                "link_playlist": " "
+            }
+        ]
+    },
+    "espaco_kids": {
+        "titulo": "Histórias Infantis",
+        "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrXLXaqCJyguomMhHxDR4auM&si=Z3huZO1ep7sCvSQJ",
+        "cor_tema": "#D4AF37"
+    },
+    "visita_profeta": {
+        "titulo": "Visita do Profeta",
+        "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrVohq-Jlns18d9RIAQPjLzn&si=JFETbxtYHP5hdfTA",
+        "cor_tema": "#D4AF37"
+    }
+}

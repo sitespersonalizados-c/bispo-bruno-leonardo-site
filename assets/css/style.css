@@ -1,0 +1,2289 @@
+/* ================
+   1. RESET
+   ================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================
+   2. VARIÁVEIS
+   ================ */
+
+:root {
+    --azul: #001432;
+    --dourado: #D4AF37;
+    --branco: #ffffff;
+    --bg-transparente: rgba(255, 255, 255, 0.15);
+}
+
+/* ================
+   3. BASE GLOBAL
+   ================ */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--branco);
+    scroll-behavior: smooth;
+    background-color: #000;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/backgrounds/fundo-calicev.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    z-index: -2;
+}
+
+
+body>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   4. COMPONENTES REUTILIZÁVEIS
+======================================== */
+
+/* Títulos */
+.titulo-secao {
+    text-align: center;
+    margin: 60px 0 25px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dourado);
+    font-weight: bold;
+}
+
+.subtitulo-secao {
+    color: var(--dourado);
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* Botões */
+.btn-acessar {
+    text-decoration: none !important;
+    /* Remove o traço padrão de links */
+    display: inline-block;
+    background-color: var(--branco);
+    /* Cor de fundo para parecer um botão */
+    color: var(--azul);
+    /* Cor do texto */
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.btn-acessar:hover {
+    background-color: var(--dourado);
+    color: var(--branco);
+    text-decoration: none !important;
+    /* Garante que não apareça o traço no hover */
+}
+
+.btn-pedido {
+    display: inline-block;
+    background-color: var(--branco);
+    color: var(--azul);
+    padding: 12px 30px;
+    border-radius: 50px;
+    /* MUDANÇA: margin-top zero para o botão subir dentro da caixa */
+    margin-top: 0;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.btn-pedido:hover {
+    background-color: var(--dourado);
+    color: white;
+}
+
+
+/* Blocos padrão */
+
+.bloco-padrao {
+    margin: 40px 5%;
+    padding: 60px 5%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding-bottom: 20px !important;
+
+    /* VISUAL */
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    text-align: center;
+}
+
+.bloco-padrao p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    padding: 0 10px;
+}
+
+.bloco-padrao h2,
+.bloco-padrao h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+
+/* ==========================================================================
+   4.1 COMPONENTES – CARDS
+   ========================================================================== */
+
+
+/* BASE DO CARD */
+
+.card-recurso {
+    background: var(--branco);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--azul);
+    box-shadow: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    will-change: transform;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 6 /4;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 2px solid transparent;
+    outline: none;
+
+
+}
+
+.card-video-destaque {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 6 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 20px;
+    padding: 30px;
+    gap: 15px;
+
+    background: rgba(0, 0, 0, 0.6);
+    /* fundo escuro padrão */
+    backdrop-filter: blur(6px);
+    /* efeito vidro opcional */
+
+    color: #ffffff;
+    transition: 0.4s ease;
+
+}
+
+
+/* ELEMENTOS INTERNOS */
+
+.card-recurso h3,
+.card-recurso p,
+.card-recurso span {
+    color: inherit;
+    margin: 4px 0;
+    line-height: 1.3;
+}
+
+.card-recurso h3 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.card-recurso .icon {
+    font-size: 30px;
+    margin-bottom: 5px;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Ícone Cálice personalizado */
+.card-recurso .icon-calice {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url("../img/elements/calice-emoji.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ESTADO */
+
+.card-recurso:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;
+    border-color: var(--dourado) !important;
+
+}
+
+.card-recurso:hover .icon {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px var(--dourado));
+}
+
+.card-video-destaque:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+
+    background-image:
+        linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.8)),
+        url("../img/backgrounds/fundo-video.webp");
+
+    color: #fff;
+}
+
+/* MODIFICADORES (VARIAÇÕES DO CARD) */
+
+.card-carne {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+        url('../img/backgrounds/fundo-carne.webp');
+}
+
+.card-mezuzah {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+        url('../img/backgrounds/fundo-mezuzah.webp');
+}
+
+.card-profeta {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+        url('../img/backgrounds/fundo-profeta.webp');
+}
+
+.card-salmo {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+        url('../img/backgrounds/fundo-salmo.webp');
+}
+
+.card-salmo2 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('../img/backgrounds/fundo-salmo2.webp');
+}
+
+.card-salmo3 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('../img/backgrounds/fundo-salmo3.webp');
+}
+
+/* MODIFICADORES NO HOVER */
+
+/* Troca de fundo para Azul Escuro no Hover (Mantendo seu efeito) */
+.card-carne:hover {
+    background-image: linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.8)),
+        url('../img/backgrounds/fundo-carne.webp');
+}
+
+.card-mezuzah:hover {
+    background-image: linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.8)),
+        url('../img/backgrounds/fundo-mezuzah.webp');
+}
+
+.card-profeta:hover {
+    background-image: linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.8)),
+        url('../img/backgrounds/fundo-profeta.webp');
+}
+
+.card-salmo:hover {
+    background-image: linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.8)),
+        url('../img/backgrounds/fundo-salmo.webp');
+}
+
+.card-salmo2:hover {
+    background-image: linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.8)),
+        url('../img/backgrounds/fundo-salmo2.webp');
+}
+
+.card-salmo3:hover {
+    background-image: linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.8)),
+        url('../img/backgrounds/fundo-salmo3.webp');
+}
+
+
+/* ========================
+   5.SEÇÕES
+   ======================== */
+
+/* ========================
+   5.1 HEADER
+   ======================== */
+
+.main-header {
+    background-color: var(--azul);
+    display: flex;
+    flex-direction: column;
+    /* coluna no mobile */
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border-bottom: 3px solid var(--dourado);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.top-info-bar {
+    background-color: #000A1E !important;
+    padding: 8px 5%;
+    display: flex;
+    flex-direction: column;
+    /* Mobile primeiro */
+    align-items: center;
+    width: 100%;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    /* Alinha ícone e texto na mesma linha */
+    justify-content: center;
+    width: 100%;
+    margin: 0 !important;
+}
+
+.info-item i {
+    color: #D4AF37;
+    margin-right: 8px;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+
+/* Estilo dos links de endereço */
+.map-link {
+    color: var(--branco);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.map-link:hover {
+    color: var(--dourado);
+    text-decoration: underline;
+}
+
+/* ================= MENU HAMBURGER ================= */
+
+.menu-hamburger {
+    display: block;
+    font-size: 26px;
+    color: var(--branco);
+    cursor: pointer;
+    padding: 6px 12px;
+    border: 1px solid var(--dourado);
+    border-radius: 6px;
+    background: none;
+    outline: none;
+}
+
+/* Esconde o menu padrão no mobile */
+.menu-topo {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--branco);
+    display: none;
+    flex-direction: column;
+    padding: 20px 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Quando ativo */
+.menu-topo.ativo {
+    display: flex;
+}
+
+.menu-topo ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    /* remove os pontinhos */
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Corrigido para garantir visibilidade do menu no fundo escuro */
+.menu-topo ul li a {
+    color: var(--branco) !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.menu-topo ul li a:hover {
+    color: var(--dourado) !important;
+}
+
+
+
+/* Menu Mobile */
+
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: auto;
+    max-height: 80vh;
+    border-bottom-right-radius: 12px;
+    background: var(--azul);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+    transition: left 0.4s ease;
+    z-index: 2000;
+}
+
+.menu-mobile a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 2;
+
+}
+
+.menu-mobile.ativo {
+    left: 0;
+}
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 1500;
+    pointer-events: none;
+}
+
+.menu-overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Redes Sociais do Topo */
+.logo-container {
+    text-align: center;
+}
+
+.redes-topo {
+    display: flex;
+    gap: 32px;
+
+}
+
+
+.redes-topo a {
+    color: var(--branco) !important;
+    font-size: 18px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.redes-topo a:hover {
+    color: var(--dourado) !important;
+    transform: scale(1.2);
+}
+
+.redes-topo i {
+    font-size: 30px;
+    /* aumenta tamanho */
+    color: #ffffff;
+    /* ajuste se precisar */
+    transition: 0.3s ease;
+}
+
+.frase-missao {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: var(--dourado);
+    font-weight: bold;
+}
+
+
+.logo {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+/* ========================
+   5.2 HERO
+   ======================== */
+
+.hero-portal {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 5% 20px;
+}
+
+/* ========================
+   5.3 BARRA DE RECURSOS
+   ======================== */
+
+.barra-recursos {
+    display: flex;
+    flex-direction: column;
+    /* Mobile primeiro */
+    align-items: center;
+    gap: 20px;
+    margin: 40px auto;
+    padding: 0 15px;
+    width: 100%;
+}
+
+/* ========================
+   5.4 VÍDEOS
+   ======================== */
+
+.chamada-videos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 5%;
+}
+
+.chamada-videos .card-video-destaque {
+    justify-content: flex-start;
+    /* tira centralização vertical */
+    gap: 8px;
+    /* diminui espaço interno */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card-video-destaque .lista-oracoes-card {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-video-destaque .lista-oracoes-card li {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--branco);
+    line-height: 1.2;
+}
+
+.card-video-destaque i.fas.fa-play-circle {
+    color: var(--dourado) !important;
+}
+
+.card-video-destaque p {
+    color: var(--dourado) !important;
+}
+
+
+
+/* ========================
+   5.5 ORAÇÃO
+   ======================== */
+
+.pedido-oracao {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.oracao {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.lista-oracoes {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px;
+    display: flex;
+    flex-direction: column;
+    /* No celular fica um embaixo do outro */
+    align-items: center;
+    /* Centraliza os itens */
+    gap: 15px;
+}
+
+.lista-oracoes li {
+    font-weight: bold;
+    font-size: 1rem;
+    /* Aumentei levemente para ler melhor */
+    color: var(--dourado);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Espaço entre o emoji 🙏🏽 e o texto */
+}
+
+
+/* ========================
+   5.6 SOBRE
+   ======================== */
+
+.sobre-bispo {
+
+    padding: 0 0 10px 0 !important;
+    background: transparent !important;
+}
+
+.sobre-bispo .titulo-secao {
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--dourado);
+}
+
+
+.frase-pastoral-simples {
+    text-align: center;
+    color: var(--branco);
+    /* Ajuste a cor se desejar */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 30px auto 10px auto;
+    padding: 0 20px;
+    max-width: 400px;
+}
+
+.frase-pastoral-simples strong {
+    color: var(--dourado);
+}
+
+/*========================================
+   5.6.1 FRASE REFLEXÃO - AJUSTE FINAL
+======================================== */
+
+.frase-reflexao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    margin: 0 !important;
+    clear: both;
+}
+
+.frase-reflexao p {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    color: var(--dourado) !important;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 1);
+
+    text-align: center;
+    margin: 0 auto !important;
+    max-width: 900px;
+    line-height: 1.4;
+    width: 90%;
+}
+
+
+/* ========================
+   5.7 PIX
+   ======================== */
+
+.secao-pix-portal {
+    padding: 60px 5%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    border-radius: 20px;
+    margin: 40px 5%;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.pix-header h2 {
+    color: var(--dourado);
+    text-transform: uppercase;
+
+}
+
+.img-pix {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    border: 3px solid var(--dourado);
+    margin-bottom: 15px;
+}
+
+.botoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-pix {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.btn-pix {
+    background: #eee;
+    color: var(--azul);
+}
+
+.btn-pix.gold {
+    background: var(--dourado);
+    color: var(--azul);
+}
+
+.btn-pix.paypal {
+    background: #003087;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+}
+
+.btn-pix.sucesso {
+    background: #28a745 !important;
+    color: white !important;
+}
+
+/* EFEITO HOVER GERAL PARA OS BOTÕES PIX */
+.btn-pix {
+    transition: all 0.3s ease !important;
+    /* Suaviza a troca de cor e movimento */
+}
+
+.btn-pix:hover {
+    background-color: var(--azul) !important;
+    color: var(--branco) !important;
+    transform: translateY(-3px);
+    border: 1px solid var(--dourado) !important;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Hover no botão Dourado (Fica mais brilhante ou inverte) */
+.btn-pix.gold:hover {
+    background-color: var(--azul) !important;
+    color: var(--branco) !important;
+    border: 1px solid var(--dourado) !important;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-pix.paypal:hover {
+    background-color: #0045c4 !important;
+    /* Um azul PayPal mais vivo */
+    transform: translateY(-3px);
+    border: 1px solid var(--dourado) !important;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Efeito de "Clique" (Active) para todos */
+.btn-pix:active {
+    transform: translateY(-1px);
+}
+
+/* ========================
+   5.8 TESTEMUNHOS
+   ======================== */
+
+.testemunhos-section {
+    clear: both;
+    padding: 40px 0 !important;
+    /* Espaço entre as seções */
+    background: transparent !important;
+}
+
+.testemunhos-container {
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    border-radius: 20px !important;
+
+    /* Largura igual ao PIX */
+    margin: 40px 5% !important;
+    padding: 60px 5% !important;
+    width: auto !important;
+    box-sizing: border-box !important;
+
+    /* Organiza o Título e o Botão em coluna */
+    display: flex !important;
+    flex-direction: column !important;
+    /* Faz um ficar embaixo do outro */
+    align-items: center !important;
+    /* Centraliza horizontalmente */
+    justify-content: center !important;
+    text-align: center;
+}
+
+/* Ajuste opcional para o título não ficar colado no botão */
+.testemunhos-container .titulo-secao {
+    margin-top: 0 !important;
+    margin-bottom: 25px !important;
+}
+
+/* Centralização do botão de testemunho */
+.btn-container-testemunho {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Efeito para o botão Acessar dentro da seção de Testemunhos */
+.btn-container-testemunho .btn-acessar:hover {
+    background-color: var(--dourado) !important;
+    color: var(--branco) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* ----------------------------------------
+   5.8.1 SEÇÃO LEMA
+---------------------------------------- */
+
+.container-lema {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+}
+
+.container-lema p {
+    max-width: 750px;
+    margin: 0 auto;
+    color: var(--dourado) !important;
+    font-style: italic;
+    line-height: 1.6;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 6vw, 3rem);
+    font-family: 'Georgia', serif;
+}
+
+/* ========================
+   5.9 FOOTER
+   ======================== */
+
+.main-footer {
+    background: #000a1e !important;
+    /* Cor sólida para evitar transparências no final */
+    padding: 10px 5% !important;
+    /* Reduzido de 20px para 10px */
+    margin-top: 50px;
+    border-top: 1px solid var(--dourado);
+    width: 100%;
+}
+
+.footer-logo img {
+    height: 45px;
+}
+
+.footer-logo p {
+    font-size: 11px;
+    color: var(--dourado);
+    margin: 5px 0 0;
+}
+
+/* Navegação em linha */
+.footer-links h4 {
+    display: none;
+}
+
+.footer-links ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--dourado);
+}
+
+/* Redes Sociais 4x4 */
+.footer-social h4 {
+    display: none;
+}
+
+.social-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 140px;
+    margin: 0 auto;
+}
+
+.social-icons a {
+    color: var(--branco);
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+/* Cores das Redes no Hover */
+.social-icons a:hover .fa-whatsapp {
+    color: #25D366;
+}
+
+.social-icons a:hover .fa-youtube {
+    color: #FF0000;
+}
+
+.social-icons a:hover .fa-tiktok {
+    color: #362b2b;
+}
+
+.social-icons a:hover .fa-instagram {
+    color: #E1306C;
+}
+
+.social-icons a:hover .fa-facebook {
+    color: #1877F2;
+}
+
+.social-icons a:hover .fa-spotify {
+    color: #1DB954;
+}
+
+.social-icons a:hover .fa-deezer {
+    color: #ef5464;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 10px;
+    color: #ffffff4d;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+/* Logo da igreja no rodapé */
+.footer-logo-igreja img {
+    height: 75px;
+}
+
+
+.assinatura-dev {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 8px;
+    /* menor */
+    letter-spacing: 0.4px;
+    /* menos espaçado */
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--branco);
+    opacity: 0.35;
+    font-weight: 600;
+    /* mais leve que bold */
+    line-height: 0.95;
+    transition: all 0.3s ease;
+}
+
+
+.assinatura-dev:hover {
+    opacity: 0.7;
+    /* Revela a assinatura ao passar o mouse */
+    color: var(--dourado) !important;
+    transform: scale(1.05);
+    /* Leve destaque visual */
+}
+
+/* Garante que o link não mude de cor após ser clicado */
+.assinatura-dev:visited {
+    color: var(--branco) !important;
+}
+
+
+
+/* ========================
+    6 ELEMENTOS FLUTUANTES
+   ======================== */
+
+.whatsapp-fixo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.whatsapp-fixo:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+/* ========================================
+   7. RESPONSIVIDADE (COMPLETO)
+======================================== */
+
+/* ----------------------------------------
+   7.1 MOBILE FIRST – IMAGENS DECORATIVAS
+---------------------------------------- */
+.img-decorativa-1,
+.img-decorativa-2 {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.6;
+    filter: grayscale(20%);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* EM CIMA */
+.img-decorativa-2 {
+    top: 60px;
+    width: 300px;
+    height: auto;
+    animation: respirar 6s ease-in-out infinite;
+    transform-origin: center;
+    z-index: -1;
+}
+
+/* Animação de respiração suave */
+@keyframes respirar {
+    0% {
+        transform: translate(-50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%) scale(1.05);
+    }
+
+    100% {
+        transform: translate(-50%) scale(1);
+    }
+}
+
+/* NO MEIO */
+.img-decorativa-1 {
+    top: 70%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: auto;
+}
+
+/* Animação exclusiva para o Leão fixo na esquerda */
+@keyframes respirar-canto {
+
+    0%,
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateY(-50%) scale(1.05);
+    }
+}
+
+/* ----------------------------------------
+   7.2 AJUSTES ESPECÍFICOS (MOTO C, M14, G15)
+---------------------------------------- */
+
+/* MOTO C (320px) */
+@media (max-width: 350px) {
+    .titulo-secao {
+        font-size: 1.2rem !important;
+        margin-top: auto !important;
+        margin-bottom: 15px !important;
+    }
+
+    body .img-decorativa-2 {
+        top: 0 !important;
+    }
+
+    body .img-decorativa-1 {
+        top: 80% !important;
+
+    }
+
+    /* CARDS UM EMBAIXO DO OUTRO */
+    .barra-recursos {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+    }
+
+    /* TAMANHO DOS CARDS */
+    .card-recurso {
+        width: 90% !important;
+        max-width: 280px !important;
+        padding: 12px !important;
+    }
+
+    /* AJUSTE DE TEXTO */
+    .card-recurso h3 {
+        font-size: 0.9rem !important;
+    }
+
+    .card-recurso h4 {
+        font-size: 0.8rem !important;
+    }
+
+    /* ÍCONES */
+    .card-recurso .icon {
+        font-size: 22px !important;
+    }
+
+    /* =========================
+       BOTÃO PAYPAL
+    ========================= */
+
+    .btn-pix.paypal {
+        font-size: 0.9rem !important;
+        padding: 12px !important;
+    }
+
+    /* garante que todos fiquem iguais */
+    .btn-pix {
+        font-size: 0.85rem;
+    }
+
+    /* =========================
+       FRASE (SILÊNCIO / REFLEXÃO)
+    ========================= */
+
+    .frase-reflexao p {
+        font-size: 1.2rem !important;
+        line-height: 1.3 !important;
+        padding: 0 10px;
+    }
+
+    /* =========================
+       TESTEMUNHO
+    ========================= */
+
+    /* TÍTULO TESTEMUNHOS */
+    .testemunhos-container .titulo-secao {
+        font-size: 1.2rem !important;
+    }
+
+    .container-lema p {
+        font-size: 1.2rem;
+    }
+
+
+    .frase-pastoral-simples {
+        text-align: center;
+        color: var(--branco);
+        /* Ajuste a cor se desejar */
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 30px auto 10px auto;
+        padding: 0 20px;
+        max-width: 400px;
+    }
+
+    .frase-pastoral-simples strong {
+        color: var(--dourado);
+    }
+
+}
+
+/* M14 (360px) e G15 */
+@media (max-width: 450px) {
+    .titulo-secao {
+        font-size: 1.4rem !important;
+    }
+
+    .img-decorativa-2 {
+        width: 250px !important;
+        top: 55px !important;
+        opacity: 0.4 !important;
+    }
+
+    .img-decorativa-1 {
+        width: 320px !important;
+        top: 72% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .testemunhos-section {
+        padding: 0 !important;
+        margin-top: -15px !important;
+        margin-bottom: -15px !important;
+    }
+
+    .testemunhos-container {
+        margin: 10px 5% !important;
+        padding: 60px 5% !important;
+        width: auto !important;
+        min-height: 180px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .testemunhos-container .titulo-secao {
+        font-size: 1.5rem;
+        margin-bottom: 25px !important;
+    }
+}
+
+/* ----------------------------------------
+   7.2 FOOTER MOBILE
+---------------------------------------- */
+@media (max-width: 899px) {
+    .main-footer {
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        height: 40px;
+    }
+
+    .footer-logo p {
+        font-size: 12px;
+    }
+
+    .footer-links ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links a {
+        font-size: 14px;
+    }
+
+    .footer-social {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-icons {
+        width: 220px;
+        gap: 18px;
+    }
+
+    .social-icons a {
+        font-size: 26px;
+        padding: 8px;
+    }
+
+    .footer-logo-igreja img {
+        height: 60px;
+    }
+
+    .footer-bottom {
+        font-size: 11px;
+        margin-top: 20px;
+    }
+}
+
+/* ----------------------------------------
+   7.3 TABLET (600px+)
+---------------------------------------- */
+@media (min-width: 600px) {
+    .info-item {
+        justify-content: center;
+        font-size: 10px;
+    }
+
+    .barra-recursos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        padding: 0 5%;
+    }
+
+    .titulo-secao {
+        font-size: 1.5rem;
+        margin: 40px 0 20px;
+    }
+
+    .card-recurso {
+        height: 180px;
+    }
+
+    .container-lema p {
+        font-size: 1.3rem;
+    }
+
+    .secao-pix-portal {
+        margin: 20px 5%;
+        padding: 30px 5%;
+    }
+
+    .img-pix {
+        max-width: 220px;
+    }
+}
+
+/* ----------------------------------------
+   7.4 MÉDIO (768px+)
+---------------------------------------- */
+@media (min-width: 768px) {
+    body::before {
+        background-image: url("../img/backgrounds/fundo-caliceh.webp");
+        background-position: center top;
+        opacity: 0.5;
+    }
+
+    .hero-portal {
+        padding: 60px 5% 20px;
+        min-height: auto;
+    }
+
+    .oracao {
+        padding: 30px;
+    }
+
+    .social-icons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .container-lema p {
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+
+    .footer-videos {
+        padding: 15px 0 !important;
+    }
+
+    .footer-videos .footer-content {
+        gap: 15px !important;
+    }
+
+    .footer-videos .social-icons {
+        gap: 10px;
+    }
+}
+
+/* ----------------------------------------
+   7.5 DESKTOP (900px+)
+---------------------------------------- */
+@media (min-width: 900px) {
+    .main-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 15px 5%;
+        flex-direction: row;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        height: 60px;
+        width: auto;
+    }
+
+    .menu-topo {
+        display: block !important;
+        position: static !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        width: auto !important;
+    }
+
+    .menu-topo ul {
+        flex-direction: row !important;
+        gap: 30px;
+        display: flex !important;
+    }
+
+    .menu-mobile {
+        display: none !important;
+    }
+
+    .redes-topo {
+        display: flex;
+        gap: 20px;
+    }
+
+    .redes-topo i {
+        font-size: 18px !important;
+    }
+
+    .redes-topo a:hover {
+        transform: scale(1.1);
+    }
+
+    .menu-hamburger {
+        display: none;
+    }
+
+    .img-decorativa-1,
+    .img-decorativa-2 {
+        top: 55%;
+        opacity: 0.5;
+    }
+
+    .img-decorativa-1 {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+    }
+
+    .img-decorativa-2 {
+        right: auto;
+        left: 5% !important;
+        top: 55%;
+        width: 450px;
+        position: fixed;
+        z-index: -1;
+        animation: respirar-canto 7s ease-in-out infinite !important;
+        transform: translateY(-50%);
+    }
+
+    .barra-recursos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .card-recurso {
+        width: 300px;
+        aspect-ratio: 6 / 4;
+        height: auto;
+    }
+
+    .bloco-padrao,
+    .testemunhos-container {
+        width: auto !important;
+        max-width: none !important;
+        margin: 40px 5% !important;
+        padding: 60px 5% !important;
+        border-radius: 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    .testemunhos-container .titulo-secao {
+        font-size: 1.5rem;
+        margin-bottom: 20px !important;
+        letter-spacing: 1px;
+    }
+
+    .bloco-padrao p {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container-lema p {
+        font-family: 'Georgia', serif;
+        font-size: 1.8rem;
+        font-style: italic;
+        color: var(--dourado);
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        margin: 0 auto;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    .lista-oracoes {
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .img-pix {
+        width: 100%;
+        max-width: 350px;
+        border-radius: 15px;
+        border: 3px solid var(--dourado);
+        margin-bottom: 15px;
+    }
+
+    .frase-reflexao {
+        padding-top: 40px;
+    }
+
+    .frase-reflexao p {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        font-size: clamp(1.4rem, 5vw, 2rem);
+        color: var(--dourado) !important;
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 1);
+        text-align: center;
+        margin: 0 auto !important;
+        max-width: 900px;
+        line-height: 1.4;
+        width: 90%;
+    }
+
+    .frase-pastoral-simples {
+        text-align: center;
+        color: var(--branco);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 60px auto 10px auto;
+        padding: 0 20px;
+        max-width: 400px;
+    }
+
+    .frase-pastoral-simples strong {
+        color: var(--dourado);
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr 1fr;
+        align-items: center;
+        text-align: left;
+    }
+
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo img {
+        margin-bottom: 10px;
+    }
+
+    .footer-links ul {
+        gap: 20px !important;
+    }
+
+    .footer-links a {
+        font-size: 12px !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .footer-social {
+        justify-content: flex-end;
+    }
+
+    .footer-logo-igreja img {
+        height: 65px !important;
+        margin: 0 !important;
+    }
+
+    .footer-bottom {
+        margin-top: 8px !important;
+        padding-top: 8px !important;
+        font-size: 10px !important;
+    }
+
+    .chamada-videos {
+        padding: 60px 5%;
+    }
+
+    .card-video-link {
+        max-width: 700px;
+        padding: 50px 40px;
+        border-radius: 25px;
+    }
+
+    .card-video-link i {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    .card-video-link h3 {
+        font-size: 1.8rem;
+    }
+
+    .card-video-link p {
+        font-size: 1.05rem;
+        margin-bottom: 25px;
+    }
+
+    .btn-acessar {
+        font-size: 14px;
+        padding: 14px 35px;
+    }
+}
+
+/* ----------------------------------------
+   7.6 DESKTOP GRANDE (992px+)
+---------------------------------------- */
+@media (min-width: 992px) {
+    .link-sedes-mobile-only {
+        display: flex !important;
+        justify-content: center;
+        color: var(--branco);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .top-info-bar {
+        flex-direction: row !important;
+        justify-content: center;
+        gap: 40px;
+        padding: 8px 5%;
+    }
+}
+
+/* ----------------------------------------
+   7.7 MOBILE ESPECÍFICO (991px-)
+---------------------------------------- */
+@media (max-width: 991px) {
+    .link-sedes-mobile-only {
+        display: flex !important;
+        justify-content: center;
+        color: var(--branco);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 5px;
+    }
+}
+
+/* ----------------------------------------
+   7.8 DESKTOP (1024px)
+---------------------------------------- */
+@media (min-width: 1024px) {
+    .container-lema {
+        padding: 40px 20px;
+        margin-top: -50px;
+        margin-bottom: 50px;
+    }
+
+    .container-lema p {
+        font-size: 2rem;
+        max-width: 900px;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    /* Ajuste de espaçamento para frase reflexiva no desktop */
+    .frase-reflexao {
+        padding-top: 60px;
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   AJUSTE TELA DEITADA (LANDSCAPE)
+========================================= */
+@media screen and (max-height: 500px) and (min-width: 500px) {
+    .barra-recursos {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px !important;
+        padding: 0 5px !important;
+    }
+
+    .card-recurso {
+        flex: 1 1 250px;
+        width: 100%;
+        aspect-ratio: 6 / 4;
+        height: auto !important;
+        padding: 10px !important;
+    }
+
+    .img-decorativa-1,
+    .img-decorativa-2 {
+        top: 55%;
+        opacity: 0.5;
+    }
+
+    .img-decorativa-1 {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+    }
+
+    .img-decorativa-2 {
+        right: auto;
+        left: 5% !important;
+        top: 55%;
+        width: 300px;
+        position: fixed;
+        z-index: -1;
+        animation: respirar-canto 7s ease-in-out infinite !important;
+        transform: translateY(-50%);
+    }
+
+    .container-lema {
+
+        text-align: center;
+        padding: 20px 10px 20px 10px !important;
+    }
+
+
+    .container-lema p {
+        font-size: 1.6rem !important;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 900px;
+    }
+
+    .testemunhos-section {
+        padding: 0 !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .lista-oracoes {
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .frase-reflexao {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .frase-reflexao p {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        color: var(--dourado) !important;
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 1);
+        text-align: center;
+        margin: 0 auto !important;
+        max-width: 900px;
+        line-height: 1.4;
+        width: 90%;
+    }
+
+    .frase-pastoral-simples {
+        text-align: center;
+        color: var(--branco);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 40px auto 20px auto;
+        padding: 0 20px;
+        max-width: 400px;
+    }
+
+    .frase-pastoral-simples strong {
+        color: var(--dourado);
+    }
+
+    .menu-mobile {
+        height: 100vh !important;
+        max-height: 100vh !important;
+        overflow-y: auto !important;
+        padding-bottom: 40px !important;
+    }
+}
+
+@media screen and (max-height: 400px) and (max-width: 600px) {
+
+    /* 1. Redução Geral de Espaçamento nos Blocos (Orações, Sobre, Testemunhos) */
+    .bloco-padrao,
+    .testemunhos-container,
+    .secao-pix-portal,
+    .oracao {
+        margin: 10px 5% !important;
+        padding: 25px 5% !important;
+        min-height: auto !important;
+    }
+
+    /* 2. Títulos das Seções menores para sobrar espaço vertical */
+    .titulo-secao {
+        font-size: 1.2rem !important;
+        margin: 15px 0 10px !important;
+    }
+
+    /* 3. Seção Sobre o Bispo (Ajuste de parágrafos) */
+    .bloco-padrao p,
+    .frase-pastoral-simples {
+        font-size: 0.9rem !important;
+        margin-bottom: 10px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* 4. Seção de Orações (Lista e Botão) */
+    .lista-oracoes {
+        gap: 8px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .lista-oracoes li {
+        font-size: 0.9rem !important;
+    }
+
+    .btn-pedido {
+        padding: 8px 20px !important;
+        font-size: 12px !important;
+    }
+
+    /* 5. Seção de Ofertas (Pix) */
+    .secao-pix-portal {
+        padding: 15px !important;
+    }
+
+    .img-pix {
+        max-width: 180px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .botoes-container {
+        gap: 8px !important;
+    }
+
+    .btn-pix {
+        padding: 10px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* 6. Seção de Testemunhos */
+    .testemunhos-container .titulo-secao {
+        margin-bottom: 10px !important;
+    }
+
+    .btn-container-testemunho {
+        margin-top: 10px !important;
+    }
+
+    .pedido-oracao {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding-bottom: 15px !important;
+    }
+
+    .oracao {
+        margin: 0 auto !important;
+        /* Garante que o card da oração esteja no centro */
+        align-items: center !important;
+        /* Centraliza o conteúdo interno (lista e botão) */
+    }
+
+    .btn-pedido {
+        display: block !important;
+        margin: 0 auto !important;
+        /* Força o botão para o meio */
+        width: fit-content;
+        /* Garante que o botão não estique e use a margem auto */
+    }
+
+    .container-lema p {
+        font-size: 1.2rem !important;
+        margin: 0 10px !important;
+        width: 90% !important;
+        max-width: 100% !important;
+
+    }
+
+
+    /* Ajuste do Menu */
+    .menu-mobile {
+        height: 100vh !important;
+        max-height: 100vh !important;
+        overflow-y: auto !important;
+        padding-bottom: 40px !important;
+    }
+
+    /* Centralização da Seção da Frase */
+    .frase-reflexao {
+        display: flex;
+        /* Ativa o flexbox */
+        justify-content: center;
+        /* Centraliza horizontalmente */
+        align-items: center;
+        /* Centraliza verticalmente */
+        width: 100%;
+        /* Garante que ocupa a largura toda */
+        padding: 15px 0;
+        /* Espaçamento interno */
+        box-sizing: border-box;
+        /* Garante que o padding não quebre o layout */
+    }
+
+    /* Estilização da Frase: "O silêncio protege a bênção" */
+    .frase-reflexao p {
+        font-family: 'Georgia', serif;
+        font-style: italic;
+        font-size: clamp(1rem, 4vw, 1.8rem);
+        color: var(--dourado) !important;
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 1);
+
+        text-align: center;
+        /* Centraliza o texto internamente */
+        margin: 0 auto !important;
+        /* Força o bloco para o centro */
+        width: 90%;
+        /* Largura responsiva */
+        max-width: 900px;
+        line-height: 1.4;
+        display: block;
+        /* Garante comportamento de bloco */
+    }
+
+    /* Título e outros elementos */
+    .titulo-secao {
+        font-size: 1.4rem !important;
+        margin-top: 25px;
+        text-align: center;
+        /* Garante título centralizado também */
+    }
+
+    /* =========================
+       CARDS LADO A LADO
+    ========================= */
+
+    .barra-recursos {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        padding: 0 5px !important;
+    }
+
+    .card-recurso {
+        flex: 1 1 140px !important;
+        max-width: 160px !important;
+        aspect-ratio: 4 / 3 !important;
+        padding: 10px !important;
+    }
+
+    /* =========================
+       TEXTO AJUSTADO
+    ========================= */
+
+    .card-recurso h3 {
+        font-size: 0.8rem !important;
+        line-height: 1.1 !important;
+    }
+
+    .card-recurso p {
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .card-recurso span {
+        font-size: 0.65rem !important;
+        line-height: 1.1 !important;
+        margin-top: 2px !important;
+        text-align: center;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    /* =========================
+       ÍCONES
+    ========================= */
+
+    .card-recurso .icon {
+        font-size: 20px !important;
+        margin-bottom: 2px !important;
+    }
+
+
+    /* =========================
+       SEGURANÇA (NÃO ESTOURAR)
+    ========================= */
+
+    .card-recurso h3,
+    .card-recurso p,
+    .card-recurso span {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+
+    .img-decorativa-1,
+    .img-decorativa-2 {
+        top: auto !important;
+    }
+
+    /* BISPO (CENTRO) */
+    body .img-decorativa-1 {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 250px !important;
+    }
+
+    /* LEÃO (ESQUERDA) */
+    body .img-decorativa-2 {
+        position: fixed !important;
+        top: 50% !important;
+        left: 3% !important;
+        transform: translateY(-50%) !important;
+        width: 200px !important;
+        animation: none !important;
+    }
+
+    .container-lema {
+        margin-top: 25px !important;
+        margin-bottom: 5px !important;
+        text-align: center !important;
+    }
+
+    .card-recurso {
+        overflow: hidden;
+    }
+
+    /* 2. CORRIGE O TEXTO DAS ORAÇÕES */
+    .card-recurso span {
+        font-size: 0.65rem !important;
+        line-height: 1.1 !important;
+
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* 3. AJUSTA ÍCONE DO CÁLICE (SEM QUEBRAR OUTROS) */
+    .card-recurso .icon-calice {
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+    /* só os cards de oração */
+    .oracoes-recursos .card-recurso {
+        overflow: hidden;
+    }
+
+    /* ÍCONES (padroniza TODOS) */
+    .oracoes-recursos .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 24px;
+        height: 24px;
+
+        font-size: 16px !important;
+        line-height: 1;
+    }
+
+    /* CÁLICE (agora funciona igual aos outros) */
+    .oracoes-recursos .icon-calice {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* TEXTOS */
+    .oracoes-recursos h3 {
+        font-size: 0.7rem !important;
+        line-height: 1.1;
+    }
+
+    .oracoes-recursos h4 {
+        font-size: 0.65rem !important;
+        line-height: 1.1;
+    }
+
+    .main-footer {
+        background: #000a1e !important;
+        /* Cor sólida para evitar transparências no final */
+        padding: 10px 5% !important;
+        /* Reduzido de 20px para 10px */
+        margin-top: 35px;
+        border-top: 1px solid var(--dourado);
+        width: 100%;
+    }
+
+}
+
+/* TABLET DEITADO - FOOTER */
+@media (min-width: 600px) and (max-height: 500px) {
+    .main-footer {
+        padding: 20px 15px !important;
+        text-align: center !important;
+    }
+
+    .footer-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+        text-align: center !important;
+    }
+
+    .footer-logo {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .footer-logo img {
+        height: 40px !important;
+    }
+
+    .footer-logo p {
+        font-size: 12px !important;
+    }
+
+    .footer-links ul {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .footer-links a {
+        font-size: 14px !important;
+    }
+
+    .footer-social {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 20px !important;
+    }
+
+    .social-icons {
+        width: 220px !important;
+        gap: 18px !important;
+    }
+
+    .social-icons a {
+        font-size: 26px !important;
+        padding: 8px !important;
+    }
+
+    .footer-logo-igreja img {
+        height: 60px !important;
+    }
+
+    .footer-bottom {
+        font-size: 11px !important;
+        margin-top: 20px !important;
+    }
+}
+
+/* SEGURANÇA BOTOES */
+.btn-pix.sucesso,
+.btn-pix.sucesso:hover,
+.btn-pix.sucesso:active {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+    border: 1px solid #28a745 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    cursor: default !important;
+}

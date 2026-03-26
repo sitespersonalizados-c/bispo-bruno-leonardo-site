@@ -1,0 +1,370 @@
+:root {
+    --azul: #001432;
+    --dourado: #D4AF37;
+    --branco: #ffffff;
+}
+
+/* Animação de respiração sutil */
+@keyframes respirar-leao {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        /* Aumenta 10% */
+        opacity: 0.35;
+        /* O brilho aumenta levemente junto com a respiração */
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.2;
+    }
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--azul);
+
+    /* Ajustes na Imagem de Fundo */
+    background-image: url('../img/backgrounds/fundo-oracao-m.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--branco);
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+
+.form-container {
+    /* Altere a linha abaixo */
+    background: rgba(0, 20, 50, 0.9);
+    /* Azul da variável --azul com 70% de opacidade */
+
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    width: 90%;
+    max-width: 300px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* O transform agora é controlado pela animação */
+
+    width: 500px;
+    height: 500px;
+    background: url('../img/elements/leao.webp') no-repeat center;
+    background-size: contain;
+
+    /* Configurações da animação */
+    animation: respirar-leao 7s ease-in-out infinite;
+
+    filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.4));
+    z-index: 0;
+    pointer-events: none;
+}
+
+.form-container i.main-icon {
+    font-size: 45px;
+    color: var(--dourado);
+    margin-bottom: 20px;
+}
+
+
+.logo-oracao {
+    height: 80px;
+    /* Ajuste a altura conforme o arquivo da sua logo */
+    width: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* Filtro opcional: se sua logo for escura e quiser que ela brilhe no fundo azul */
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+}
+
+/* Ajuste no H1 para não ficar colado na logo */
+h1 {
+    font-size: 22px;
+    margin-top: 10px;
+    color: var(--dourado);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--dourado);
+}
+
+p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.campo {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--dourado);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+textarea {
+    resize: none;
+    font-family: inherit;
+}
+
+.btn-enviar {
+    background: var(--dourado);
+    color: var(--azul);
+    border: none;
+    padding: 16px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    transition: 0.3s;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.btn-enviar:hover {
+    transform: scale(1.03);
+    background: var(--branco);
+}
+
+.voltar {
+    margin-top: 25px;
+    display: inline-block;
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    opacity: 1;
+    color: var(--dourado);
+}
+
+/* Estilo do Alerta de Cópia */
+#aviso-copia {
+    display: none;
+    font-size: 12px;
+    color: #25D366;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Desktop */
+/* Desktop */
+@media (min-width: 900px) {
+    body {
+        /* Aqui estava o erro: troque 70% por cover */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-image: url('../img/backgrounds/fundo-oracao-d.webp');
+
+    }
+
+
+    .form-container {
+        max-width: 450px;
+        /* Mantém o formulário legível em telas grandes */
+    }
+}
+
+/* Telas com pouca altura */
+@media (max-height: 500px) {
+    body {
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-image: url('../img/backgrounds/fundo-oracao-d.webp');
+        overflow-y: auto;
+    }
+
+    .form-container {
+        max-width: 450px;
+        padding: 20px;
+        overflow-y: auto;
+        max-height: 90vh;
+        /* Reduz o padding para o formulário caber sem rolar muito */
+    }
+}
+
+@media (max-width: 350px) {
+
+    /* =========================
+       BODY
+    ========================= */
+    body {
+        padding: 10px;
+        align-items: flex-start;
+        background-image: url('../img/backgrounds/fundo-oracao-m.webp');
+
+    }
+
+    /* =========================
+       FORMULÁRIO
+    ========================= */
+    .form-container {
+        padding: 20px !important;
+        max-width: 280px !important;
+    }
+
+    /* =========================
+       LEÃO (FUNDO)
+    ========================= */
+    .form-container::before {
+        width: 300px !important;
+        height: 300px !important;
+        opacity: 0.2 !important;
+    }
+
+    /* =========================
+       LOGO
+    ========================= */
+    .logo-oracao {
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    /* =========================
+       TÍTULO
+    ========================= */
+    h1 {
+        font-size: 18px !important;
+    }
+
+    p {
+        font-size: 12px !important;
+        margin-bottom: 15px;
+    }
+
+    /* =========================
+       CAMPOS
+    ========================= */
+    input,
+    textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    label {
+        font-size: 10px;
+    }
+
+    /* =========================
+       BOTÃO
+    ========================= */
+    .btn-enviar {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    /* =========================
+       LINK VOLTAR
+    ========================= */
+    .voltar {
+        font-size: 11px;
+    }
+}
+
+@media (max-height: 400px) and (max-width: 600px) {
+
+    /* FORM MENOR */
+    .form-container {
+        max-width: 260px !important;
+        padding: 15px !important;
+    }
+
+    /* LEÃO MENOR 🔥 */
+    .form-container::before {
+        width: 220px !important;
+        height: 220px !important;
+        opacity: 0.15 !important;
+    }
+
+    /* TEXTO MENOR */
+    h1 {
+        font-size: 16px !important;
+    }
+
+    p {
+        font-size: 11px !important;
+        margin-bottom: 10px;
+    }
+
+    /* CAMPOS */
+    input,
+    textarea {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    /* BOTÃO */
+    .btn-enviar {
+        font-size: 11px;
+        padding: 10px;
+    }
+
+    /* LOGO */
+    .logo-oracao {
+        height: 50px;
+    }
+
+}

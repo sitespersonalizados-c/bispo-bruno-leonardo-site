@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Vídeos — Bispo Bruno Leonardo</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/videos.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body class="pagina-videos">
+
+    <header class="main-header-video">
+        <div class="container header-flex">
+            <a href="index.html" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+            <img src="assets/img/logo/logo.webp" alt="Logo" class="logo">
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- DESTAQUE -->
+        <section class="secao-portal">
+            <h2 class="titulo-secao-v">Rotina de Orações</h2>
+            <div class="swiper rotinasSwiper">
+                <div id="proposito-container" class="swiper-wrapper"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <!-- ORAÇÕES -->
+        <section class="secao-portal">
+            <h2 class="titulo-secao-v">Orações diárias</h2>
+
+            <!-- ORAÇÕES DO DIA -->
+            <div class="subsecao-oracoes">
+                <h3 class="subtitulo-secao-v">
+                    <i class="fas fa-sun"></i> Orações do Dia
+                </h3>
+
+                <div class="carrossel-3d">
+                    <button class="carrossel-btn prev">&#10094;</button>
+                    <div id="oracoes-dia" class="carrossel-track"></div>
+                    <button class="carrossel-btn next">&#10095;</button>
+                </div>
+            </div>
+
+            <!-- ORAÇÕES DA NOITE -->
+            <div class="subsecao-oracoes">
+                <h3 class="subtitulo-secao-v">
+                    <i class="fas fa-moon"></i> Orações da Noite
+                </h3>
+
+                <div class="carrossel-3d">
+                    <button class="carrossel-btn prev">&#10094;</button>
+                    <div id="oracoes-noite" class="carrossel-track"></div>
+                    <button class="carrossel-btn next">&#10095;</button>
+                </div>
+            </div>
+
+            <!-- ORAÇÕES DA MEIA-NOITE -->
+            <div class="subsecao-oracoes">
+                <h3 class="subtitulo-secao-v">
+                    <i class="fas fa-star"></i> Orações da Meia-Noite
+                </h3>
+
+                <div class="carrossel-3d">
+                    <button class="carrossel-btn prev">&#10094;</button>
+                    <div id="oracoes-meia-noite" class="carrossel-track"></div>
+                    <button class="carrossel-btn next">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- KIDS -->
+        <section class="secao-portal">
+            <h2 class="titulo-secao-v">Espaço Kids</h2>
+            <div id="kids-container"></div>
+        </section>
+
+        <!-- VISITA DO PROFETA -->
+        <section class="secao-portal">
+            <h2 class="titulo-secao-v">Visita do Profeta</h2>
+            <div id="visita-profeta-container"></div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer footer-videos">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/img/logo/logo.webp" alt="Logo Bispo Bruno Leonardo">
+                <p>“O Senhor é o meu Pastor e nada me faltará.”</p>
+            </div>
+
+            <aside class="footer-social" aria-label="Redes oficiais">
+                <div class="social-icons">
+                    <a href="https://www.whatsapp.com/channel/0029VaEQqmN3QxS4B9lUTu3G" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/channel/AbYOYdaLseXoh32U/?igsh=MWFyNGV4aW5uZGgxdw%3D%3D"
+                        target="_blank" rel="noopener noreferrer"><i class="fas fa-dove"></i></a>
+                    <a href="https://open.spotify.com/intl-pt/album/5lkcveFczKEisKflzeGx9W" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
+                    <a href="https://www.deezer.com/br/album/169218122" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-deezer"></i></a>
+                    <a href="https://www.instagram.com/bispobrunoleonardo/" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@BispoBrunoLeonardo" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@bispobrunooriginal" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/bispobrunooficial" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-facebook"></i></a>
+                </div>
+            </aside>
+
+            <div class="footer-logo-igreja">
+                <img src="assets/img/logo/logo-igreja.webp" alt="Logo da Igreja">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Bispo Bruno Leonardo - Todos os direitos reservados.</p>
+            <a href="https://wa.me/5512997205724?text=Olá%20Cristina,%20vi%20o%20seu%20trabalho%20no%20site%20do%20Bispo%20Bruno%20e%20gostaria%20de%20fazer%20um%20orçamento."
+                class="assinatura-dev" target="_blank" rel="noopener noreferrer">
+                Desenvolvido por Cristina Silva
+            </a>
+        </div>
+    </footer>
+
+    <a href="https://www.whatsapp.com/channel/0029VaEQqmN3QxS4B9lUTu3G" class="whatsapp-fixo" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/script-videos.js"></script>
+
+</body>
+
+</html>
