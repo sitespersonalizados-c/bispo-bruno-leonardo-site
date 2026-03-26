@@ -76,7 +76,7 @@ oracao.html
 
 ## 🌍 Acesso ao Projeto
 
-(Coloque aqui depois o link do GitHub Pages se publicar)
+https://sitespersonalizados-c.github.io/bispo-bruno-leonardo-site
 
 ---
 
