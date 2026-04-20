@@ -112,6 +112,7 @@
 
 .card-video-iluminados,
 .card-video-efata,
+.card-video-efata2,
 .card-video-oculto,
 .card-video-daniel {
     /* Medidas e Comportamento idênticos ao .card-recurso do style.css */
@@ -141,6 +142,7 @@
 
 .card-video-iluminados p,
 .card-video-efata p,
+.card-video-efata2 p,
 .card-video-oculto p,
 .card-video-daniel p {
     /* 1. Ativa o modelo de caixa necessário */
@@ -175,6 +177,9 @@
 .card-video-efata h3,
 .card-video-efata p,
 .card-video-efata i,
+.card-video-efata2 h3,
+.card-video-efata2 p,
+.card-video-efata2 i,
 .card-video-oculto h3,
 .card-video-oculto p,
 .card-video-oculto i,
@@ -188,6 +193,7 @@
 /* --- ESTADO HOVER (IGUAL AO STYLE.CSS) --- */
 .card-video-iluminados:active,
 .card-video-efata:active,
+.card-video-efata2:active,
 .card-video-oculto:active,
 .card-video-daniel:active {
     transform: scale(0.97);
@@ -200,6 +206,8 @@
 .card-video-iluminados:hover p,
 .card-video-efata:hover h3,
 .card-video-efata:hover p,
+.card-video-efata2:hover h3,
+.card-video-efata2:hover p,
 .card-video-oculto:hover h3,
 .card-video-oculto:hover p,
 .card-video-daniel:hover h3,
@@ -216,6 +224,11 @@
 .card-video-efata {
     background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
         url('../img/backgrounds/fundo-efata.webp') !important;
+}
+
+.card-video-efata2 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+        url('../img/backgrounds/fundo-efata2.webp') !important;
 }
 
 .card-video-oculto {
@@ -239,6 +252,11 @@
         url('../img/backgrounds/fundo-efata.webp') !important;
 }
 
+.card-video-efata2:hover {
+    background-image: linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.8)),
+        url('../img/backgrounds/fundo-efata2.webp') !important;
+}
+
 .card-video-oculto:hover {
     background-image: linear-gradient(rgba(0, 20, 50, 0.8), rgba(0, 20, 50, 0.8)),
         url('../img/backgrounds/fundo-oculto.webp') !important;
@@ -254,6 +272,7 @@
 /* 1. Efeito de Zoom (Aumenta o ícone levemente) */
 .card-video-iluminados:hover i,
 .card-video-efata:hover i,
+.card-video-efata2:hover i,
 .card-video-oculto:hover i,
 .card-video-daniel:hover i {
     transform: scale(1.2) rotate(5deg);
@@ -275,6 +294,11 @@
     filter: drop-shadow(0 0 8px var(--dourado));
 }
 
+.card-video-efata2:hover i {
+    color: var(--dourado) !important;
+    filter: drop-shadow(0 0 8px var(--dourado));
+}
+
 .card-video-oculto:hover i {
     color: #fff !important;
     /* Exemplo: ícone fica branco ao passar o mouse */
@@ -292,6 +316,7 @@
 /* Garante que o ícone tenha uma transição suave ao sair o mouse também */
 .card-video-iluminados i,
 .card-video-efata i,
+.card-video-efata2 i,
 .card-video-oculto i,
 .card-video-daniel i {
     transition: transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
@@ -529,6 +554,7 @@
 
     .card-video-iluminados:hover,
     .card-video-efata:hover,
+    .card-video-efata2:hover,
     .card-video-oculto:hover,
     .card-video-daniel:hover {
         transform: translateY(-12px) scale(1.02);
@@ -540,6 +566,8 @@
     .card-video-iluminados:hover p,
     .card-video-efata:hover h3,
     .card-video-efata:hover p,
+    .card-video-efata2:hover h3,
+    .card-video-efata2:hover p,
     .card-video-oculto:hover h3,
     .card-video-oculto:hover p,
     .card-video-daniel:hover h3,
@@ -628,6 +656,7 @@
 
     .card-video-iluminados,
     .card-video-efata,
+    .card-video-efata2,
     .card-video-oculto,
     .card-video-daniel {
         height: auto !important;
@@ -643,6 +672,7 @@
     /* Título e Texto no modo "em pé" */
     .card-video-iluminados h3,
     .card-video-efata h3,
+    .card-video-efata2 h3,
     .card-video-oculto h3,
     .card-video-daniel h3 {
         display: -webkit-box !important;
@@ -657,6 +687,7 @@
 
     .card-video-iluminados p,
     .card-video-efata p,
+    .card-video-efata2 p,
     .card-video-oculto p,
     .card-video-daniel p {
         display: -webkit-box !important;
@@ -702,6 +733,7 @@
 
     .card-video-iluminados,
     .card-video-efata,
+    .card-video-efata2,
     .card-video-oculto,
     .card-video-daniel {
         height: auto !important;
@@ -719,6 +751,7 @@
     /* Título e Texto no modo "em pé" */
     .card-video-iluminados h3,
     .card-video-efata h3,
+    .card-video-efata2 h3,
     .card-video-oculto h3,
     .card-video-daniel h3 {
         display: block !important;
@@ -736,6 +769,7 @@
 
     .card-video-iluminados p,
     .card-video-efata p,
+    .card-video-efata2 p,
     .card-video-oculto p,
     .card-video-daniel p {
         display: block !important;
@@ -753,6 +787,7 @@
 
     .card-video-iluminados i,
     .card-video-efata i,
+    .card-video-efata2 i,
     .card-video-oculto i,
     .card-video-daniel i {
         font-size: 1.5rem !important;
@@ -848,6 +883,7 @@
 
     .card-video-iluminados,
     .card-video-efata,
+    .card-video-efata2,
     .card-video-oculto,
     .card-video-daniel {
         max-width: 320px;
@@ -857,6 +893,7 @@
 
     .card-video-iluminados h3,
     .card-video-efata h3,
+    .card-video-efata2 h3,
     .card-video-oculto h3,
     .card-video-daniel h3 {
         -webkit-line-clamp: 2 !important;
@@ -970,6 +1007,7 @@
 
     .card-video-iluminados,
     .card-video-efata,
+    .card-video-efata2,
     .card-video-oculto,
     .card-video-daniel {
         justify-content: space-between;
@@ -978,6 +1016,7 @@
 
     .card-video-iluminados .btn-acessar,
     .card-video-efata .btn-acessar,
+    .card-video-efata2 .btn-acessar,
     .card-video-oculto .btn-acessar,
     .card-video-daniel .btn-acessar {
         margin-top: auto;
@@ -986,6 +1025,7 @@
     /* título */
     .card-video-iluminados h3,
     .card-video-efata h3,
+    .card-video-efata2 h3,
     .card-video-oculto h3,
     .card-video-daniel h3 {
         font-size: 0.9rem;
@@ -995,6 +1035,7 @@
     /* textos */
     .card-video-iluminados p,
     .card-video-efata p,
+    .card-video-efata2 p,
     .card-video-oculto p,
     .card-video-daniel p {
         font-size: 0.6rem;
