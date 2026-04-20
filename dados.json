@@ -18,6 +18,13 @@
             "descricao": "Acompanhe a campanha do Efatá Janeiro 2026.",
             "icone": "fa-door-open"
         },
+         {
+            "titulo": "Campanha: Efatá",
+            "fase_1": "Dia 1 ao 3",
+            "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrWLnXnVe0SAw56zHMJQmXWw&si=kobnCkjbzR7m_FIM",
+            "descricao": "Acompanhe a campanha do Efatá Abril 2026.",
+            "icone": "fa-door-open"
+        },
         {
             "titulo": "Campanha: Revelar o Oculto e Escondido",
             "fase_1": "Dia 1 ao 7",
@@ -100,7 +107,7 @@
             },
             {
                 "mes": "Abril 2026",
-                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrWJPYdFs3SQ0_mhrWOpdSL7&si=yhlkpLp8Xp3A23sU "
+                "link_playlist": " "
             },
             {
                 "mes": "Maio 2026",
@@ -150,7 +157,7 @@
             },
             {
                 "mes": "Abril 2026",
-                "link_playlist": "https://youtube.com/playlist?list=PLEVnZtX7GmrW1VTLLtfkNcIFlbRg3k80F&si=3iv6JN2L0ShZt8GN "
+                "link_playlist": " "
             },
             {
                 "mes": "Maio 2026",
