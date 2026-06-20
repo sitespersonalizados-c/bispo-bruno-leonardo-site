@@ -34,8 +34,9 @@ function renderizarDestaques (dados) {
       else if (index === 1) classe = 'card-video-efata';
       else if (index === 2) classe = 'card-video-efata2';
       else if (index === 3) classe = 'card-video-efata2';
-      else if (index === 4) classe = 'card-video-oculto';
-      else if (index === 5) classe = 'card-video-daniel';
+      else if (index === 4) classe = 'card-video-efata2';
+      else if (index === 5) classe = 'card-video-oculto';
+      else if (index === 6) classe = 'card-video-daniel';
       else classe = 'card-video-iluminados';
 
       // 1. Verificamos se o link está vazio
