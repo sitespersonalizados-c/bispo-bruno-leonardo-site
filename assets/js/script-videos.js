@@ -28,26 +28,27 @@ function renderizarDestaques (dados) {
 
   container.innerHTML = dados
     .map ((item, index) => {
-      let classe = ''card-video-iluminados';
+      // Defina a classe de cada índice aqui em ordem. 
+      // Do índice 2 ao 6, por exemplo, todos usam 'card-video-efata2'.
+      const classes = [
+        'card-video-iluminados', // 0
+        'card-video-efata',      // 1
+        'card-video-efata2',     // 2
+        'card-video-efata2',     // 3
+        'card-video-efata2',     // 4
+        'card-video-efata2',     // 5
+        'card-video-efata2',     // 6
+        'card-video-oculto',     // 7
+        'card-video-daniel'      // 8
+      ];
 
-      if (index === 0) {
-         classe = 'card-video-iluminados';
-      } else if (index === 1) {
-         classe = 'card-video-efata';
-      } else if (index >= 2 && index <= 6){
-         classe = 'card-video-efata2';
-      } else if (index === 7){
-         classe = 'card-video-oculto';
-      } else if (index === 8) {
-         classe = 'card-video-daniel';
-      }
-      else classe = 'card-video-iluminados';
+      // Pega a classe correspondente ao índice ou usa 'card-video-iluminados' como padrão para os próximos
+      const classe = classes[index] || 'card-video-iluminados';
 
       // 1. Verificamos se o link está vazio
       const temLink = item.link_playlist && item.link_playlist.trim () !== '';
 
       // 2. Definimos a ação do clique
-      // Se tiver link, abre o link. Se não, dispara o alerta.
       const acaoClique = temLink
         ? `window.open('${item.link_playlist}', '_blank')`
         : `alert('A playlist da ${item.titulo} estará disponível em breve!')`;
@@ -56,14 +57,14 @@ function renderizarDestaques (dados) {
       const classeStatus = temLink ? '' : 'card-em-breve';
 
       return `
-      <div class="swiper-slide ${classe} ${classeStatus}" onclick="${acaoClique}">
-        <i class="fas ${item.icone}"></i>
-        <h3>${item.titulo}</h3>
-        <p><strong>${item.fase_1}</strong></p>
-        <p>${item.descricao}</p>
-        <span class="btn-acessar">${temLink ? 'Assistir Playlist' : 'Em Breve'}</span>
-      </div>
-    `;
+        <div class="swiper-slide ${classe} ${classeStatus}" onclick="${acaoClique}">
+          <i class="fas ${item.icone}"></i>
+          <h3>${item.titulo}</h3>
+          <p><strong>${item.fase_1}</strong></p>
+          <p>${item.descricao}</p>
+          <span class="btn-acessar">${temLink ? 'Assistir Playlist' : 'Em Breve'}</span>
+        </div>
+      `;
     })
     .join ('');
 }
