@@ -47,6 +47,13 @@
             "descricao": "Acompanhe a campanha do Efatá Julho 2026.",
             "icone": "fa-door-open"
         },
+               {
+            "titulo": "Campanha: Efatá",
+            "fase_1": "Dia 1 ao 3",
+            "link_playlist": "https://youtube.com/playlist?list=PLOv88hR-JW0E&si=ePA-3TMs_6XJ3L0o",
+            "descricao": "Acompanhe a campanha do Efatá Agosto 2026.",
+            "icone": "fa-door-open"
+        },
         
         {
             "titulo": "Campanha: Revelar o Oculto e Escondido",
@@ -96,7 +103,7 @@
             },
             {
                 "mes": "Agosto 2026",
-                "link_playlist": " "
+                "link_playlist": "https://youtube.com/playlist?list=PLDLWXvjZWqBQ&si=Kp2MfMuwhg25pDp7 "
             },
             {
                 "mes": "Setembro 2026",
@@ -146,7 +153,7 @@
             },
             {
                 "mes": "Agosto 2026",
-                "link_playlist": " "
+                "link_playlist": "https://youtube.com/playlist?list=PLVnB73tjvQG0&si=lExzEsUrhe004rDX "
             },
             {
                 "mes": "Setembro 2026",
@@ -196,7 +203,7 @@
             },
             {
                 "mes": "Agosto 2026",
-                "link_playlist": " "
+                "link_playlist": "https://youtube.com/playlist?list=PLImzvqvfn5fI&si=liz0viAKygpgXWy_ "
             },
             {
                 "mes": "Setembro 2026",
