@@ -38,8 +38,9 @@ function renderizarDestaques (dados) {
         'card-video-efata2',     // 4
         'card-video-efata2',     // 5
         'card-video-efata2',     // 6
-        'card-video-oculto',     // 7
-        'card-video-daniel'      // 8
+        'card-video-efata2',     // 7
+        'card-video-oculto',     // 8
+        'card-video-daniel'      // 9
       ];
 
       // Pega a classe correspondente ao índice ou usa 'card-video-iluminados' como padrão para os próximos
