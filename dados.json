@@ -47,11 +47,18 @@
             "descricao": "Acompanhe a campanha do Efatá Julho 2026.",
             "icone": "fa-door-open"
         },
-               {
+            {
             "titulo": "Campanha: Efatá",
             "fase_1": "Dia 1 ao 3",
             "link_playlist": "https://youtube.com/playlist?list=PLOv88hR-JW0E&si=ePA-3TMs_6XJ3L0o",
             "descricao": "Acompanhe a campanha do Efatá Agosto 2026.",
+            "icone": "fa-door-open"
+        },
+          {
+            "titulo": "Campanha: Efatá",
+            "fase_1": "Dia 1",
+            "link_playlist": "https://youtube.com/playlist?list=PLK4QorFtQHDU&si=kUSDTGnN1dOCi5nb",
+            "descricao": "Acompanhe a campanha do Efatá Setembro 2026.",
             "icone": "fa-door-open"
         },
         
