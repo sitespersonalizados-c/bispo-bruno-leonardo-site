@@ -6,55 +6,82 @@ async function carregarPortal () {
     const resposta = await fetch ('dados.json');
     const dados = await resposta.json ();
 
-    // Passamos o array de campanhas para a função
     renderizarDestaques (dados.campanhas);
+    renderizarEfata (dados.campanhas); // Renderiza a campanha do Efata separada
 
     renderizarArquivo (dados.arquivo_mensal);
     renderizarKids (dados.espaco_kids);
     renderizarVisitaProfeta (dados.visita_profeta);
     iniciarCarrosseis3D ();
-    iniciarSwiper ();
+    iniciarSwipers (); // Inicializa todos os Swipers da página
   } catch (erro) {
     console.error ('Erro ao carregar dados:', erro);
   }
 }
 
 /* ==================================================
-   2. DESTAQUE (VERSÃO COM BLOQUEIO DE LINK VAZIO)
+   2. DESTAQUE (ROTINA DE ORAÇÕES)
    ================================================== */
 function renderizarDestaques (dados) {
   const container = document.getElementById ('proposito-container');
   if (!container) return;
 
-  container.innerHTML = dados
-    .map ((item, index) => {
-      // Defina a classe de cada índice aqui em ordem. 
-      // Do índice 2 ao 6, por exemplo, todos usam 'card-video-efata2'.
+  // Filtrando apenas os itens que pertencem à Rotina de Orações (ex: índice 0, 8 e 9 baseados na sua lista)
+  // Ou você pode ajustar o filtro de acordo com quais índices deseja mostrar aqui.
+  const indicesRotina = [0, 8, 9]; 
+
+  container.innerHTML = indicesRotina
+    .map (index => {
+      const item = dados[index];
+      if (!item) return '';
+
       const classes = [
         'card-video-iluminados', // 0
-        'card-video-efata',      // 1
-        'card-video-efata2',     // 2
-        'card-video-efata2',     // 3
-        'card-video-efata2',     // 4
-        'card-video-efata2',     // 5
-        'card-video-efata2',     // 6
-        'card-video-efata2',     // 7
         'card-video-oculto',     // 8
         'card-video-daniel'      // 9
       ];
+      const classe = classes[indicesRotina.indexOf(index)] || 'card-video-iluminados';
 
-      // Pega a classe correspondente ao índice ou usa 'card-video-iluminados' como padrão para os próximos
-      const classe = classes[index] || 'card-video-iluminados';
-
-      // 1. Verificamos se o link está vazio
       const temLink = item.link_playlist && item.link_playlist.trim () !== '';
-
-      // 2. Definimos a ação do clique
       const acaoClique = temLink
         ? `window.open('${item.link_playlist}', '_blank')`
         : `alert('A playlist da ${item.titulo} estará disponível em breve!')`;
+      const classeStatus = temLink ? '' : 'card-em-breve';
 
-      // 3. Adicionamos uma classe extra visual se estiver em breve
+      return `
+        <div class="swiper-slide ${classe} ${classeStatus}" onclick="${acaoClique}">
+          <i class="fas ${item.icone}"></i>
+          <h3>${item.titulo}</h3>
+          <p><strong>${item.fase_1}</strong></p>
+          <p>${item.descricao}</p>
+          <span class="btn-acessar">${temLink ? 'Assistir Playlist' : 'Em Breve'}</span>
+        </div>
+      `;
+    })
+    .join ('');
+}
+
+/* ==================================================
+   2.1. CAMPANHA DO EFATA
+   ================================================== */
+function renderizarEfata (dados) {
+  const container = document.getElementById ('efata-container');
+  if (!container) return;
+
+  // Pegando os itens do Efata (do índice 1 ao 7)
+  const indicesEfata = [1, 2, 3, 4, 5, 6, 7];
+
+  container.innerHTML = indicesEfata
+    .map (index => {
+      const item = dados[index];
+      if (!item) return '';
+
+      const classe = index === 1 ? 'card-video-efata' : 'card-video-efata2';
+
+      const temLink = item.link_playlist && item.link_playlist.trim () !== '';
+      const acaoClique = temLink
+        ? `window.open('${item.link_playlist}', '_blank')`
+        : `alert('A playlist da ${item.titulo} estará disponível em breve!')`;
       const classeStatus = temLink ? '' : 'card-em-breve';
 
       return `
@@ -121,14 +148,15 @@ function renderizarKids (kids) {
           Desenhos e histórias para crianças
         </p>
         <a href="${kids.link_playlist}" target="_blank"
-           class="btn-acessar btn-kids-dynamic"
-           style="--cor-kids: ${kids.cor_tema}">
-           VER DESENHOS
+            class="btn-acessar btn-kids-dynamic"
+            style="--cor-kids: ${kids.cor_tema}">
+            VER DESENHOS
         </a>
       </div>
     </div>
   `;
 }
+
 /* ==================================================
    4.1 VISITA DO PROFETA
    ================================================== */
@@ -145,9 +173,9 @@ function renderizarVisitaProfeta (visita) {
           Momentos especiais da visita do profeta
         </p>
         <a href="${visita.link_playlist}" target="_blank"
-           class="btn-acessar btn-kids-dynamic"
-           style="--cor-kids: ${visita.cor_tema}">
-           VER VISITA
+            class="btn-acessar btn-kids-dynamic"
+            style="--cor-kids: ${visita.cor_tema}">
+            VER VISITA
         </a>
       </div>
     </div>
@@ -224,8 +252,6 @@ function iniciarCarrosseis3D () {
 
     const viewport = document.createElement ('div');
     viewport.className = 'carrossel-viewport';
-
-    // CORREÇÃO: Mantém o ID original para que o CSS continue funcionando
     viewport.id = containerInterno.id;
 
     cards.forEach (card => viewport.appendChild (card));
@@ -238,82 +264,72 @@ function iniciarCarrosseis3D () {
 
     if (btnPrev) btnPrev.onclick = controle.prev;
     if (btnNext) btnNext.onclick = controle.next;
-
-    btnPrev.onclick = controle.prev;
-    btnNext.onclick = controle.next;
   });
 }
 
-let swiper; // global
+let swipersInstances = []; // Armazena instâncias globais
 
-function iniciarSwiper () {
-  // Se já existir, destrói antes de recriar.
-  if (swiper) {
-    swiper.destroy (true, true);
-    swiper = null;
-  }
-
-  const container = document.querySelector ('.rotinasSwiper');
-  if (!container) {
-    console.warn ('Swiper: contêiner não encontrado');
-    return;
-  }
-
-  const slides = container.querySelectorAll ('.swiper-slide');
-  const slideCount = slides.length;
-  if (slideCount === 0) {
-    console.warn ('Swiper: nenhum slide encontrado');
-    return;
-  }
-
-  const isMobile = window.innerWidth < 768;
-  const isLandscape = window.innerHeight <= 500;
-  const slidesPerView = isMobile ? 'auto' : Math.min (3, slideCount);
-
-  swiper = new Swiper ('.rotinasSwiper', {
-    slidesPerView,
-    spaceBetween: 20,
-    centeredSlides: isMobile,
-    loop: (isMobile || isLandscape) && slideCount > 1,
-    speed: 600,
-    grabCursor: true,
-    simulateTouch: true,
-    allowTouchMove: slideCount > 1,
-    watchOverflow: true,
-    observer: true,
-    observeParents: true,
-
-    navigation: slideCount > 1
-      ? {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }
-      : false,
-
-    mousewheel: {
-      forceToAxis: true,
-      sensitivity: 1,
-    },
-
-    keyboard: {
-      enabled: true,
-    },
-  });
-
-  console.log ('Swiper OK', {
-    mobile: isMobile,
-    landscape: isLandscape,
-    loop: swiper.params.loop,
-    slides: slideCount,
-    slidesPerView: swiper.params.slidesPerView,
-    navigation: !!swiper.params.navigation,
-  });
-
-  // Força recalcular caso o layout ainda esteja estabilizando (ex: fontes ou imagens carregando)
-  requestAnimationFrame (() => {
-    if (swiper && typeof swiper.update === 'function') {
-      swiper.update ();
+function iniciarSwipers () {
+  // Destrói instâncias anteriores se houverem
+  swipersInstances.forEach (s => {
+    if (s && typeof s.destroy === 'function') {
+      s.destroy (true, true);
     }
+  });
+  swipersInstances = [];
+
+  // Inicializa cada carrossel Swiper separadamente
+  ['.rotinasSwiper', '.efataSwiper'].forEach (seletor => {
+    const container = document.querySelector (seletor);
+    if (!container) return;
+
+    const slides = container.querySelectorAll ('.swiper-slide');
+    const slideCount = slides.length;
+    if (slideCount === 0) return;
+
+    const isMobile = window.innerWidth < 768;
+    const isLandscape = window.innerHeight <= 500;
+    const slidesPerView = isMobile ? 'auto' : Math.min (3, slideCount);
+
+    const swiperInstance = new Swiper (seletor, {
+      slidesPerView,
+      spaceBetween: 20,
+      centeredSlides: isMobile,
+      loop: (isMobile || isLandscape) && slideCount > 1,
+      speed: 600,
+      grabCursor: true,
+      simulateTouch: true,
+      allowTouchMove: slideCount > 1,
+      watchOverflow: true,
+      observer: true,
+      observeParents: true,
+
+      navigation: slideCount > 1
+        ? {
+            nextEl: container.parentElement.querySelector ('.swiper-button-next'),
+            prevEl: container.parentElement.querySelector ('.swiper-button-prev'),
+          }
+        : false,
+
+      mousewheel: {
+        forceToAxis: true,
+        sensitivity: 1,
+      },
+
+      keyboard: {
+        enabled: true,
+      },
+    });
+
+    swipersInstances.push (swiperInstance);
+  });
+
+  requestAnimationFrame (() => {
+    swipersInstances.forEach (s => {
+      if (s && typeof s.update === 'function') {
+        s.update ();
+      }
+    });
   });
 }
 
@@ -323,12 +339,11 @@ window.addEventListener ('resize', () => {
   clearTimeout (resizeTimeout);
 
   resizeTimeout = setTimeout (() => {
-    iniciarSwiper ();
+    iniciarSwipers ();
   }, 300);
 });
 
 /* ==================================================
    8. START
    ================================================== */
-
 carregarPortal ();
