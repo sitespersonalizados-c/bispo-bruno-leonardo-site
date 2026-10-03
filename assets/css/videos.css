@@ -98,7 +98,7 @@
 
 /* ================= EFEITO PROFISSIONAL SWIPER ================= */
 
-.rotinasSwiper {
+.rotinasSwiper  {
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -109,6 +109,16 @@
     justify-content: center;
 }
 
+.efataSwiper  {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.efataSwiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+}
 
 .card-video-iluminados,
 .card-video-efata,
