@@ -68,8 +68,8 @@ function renderizarEfata (dados) {
   const container = document.getElementById ('efata-container');
   if (!container) return;
 
-  // Pegando os itens do Efata (do índice 1 ao 7)
-  const indicesEfata = [1, 2, 3, 4, 5, 6, 7];
+  // Pegando os itens do Efata (do índice 1 ao 8)
+  const indicesEfata = [1, 2, 3, 4, 5, 6, 7, 8];
 
   container.innerHTML = indicesEfata
     .map (index => {
