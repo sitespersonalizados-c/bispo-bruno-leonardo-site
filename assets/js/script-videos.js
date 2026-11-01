@@ -26,9 +26,9 @@ function renderizarDestaques (dados) {
   const container = document.getElementById ('proposito-container');
   if (!container) return;
 
-  // Filtrando apenas os itens que pertencem à Rotina de Orações (ex: índice 0, 8 e 9 baseados na sua lista)
+  // Filtrando apenas os itens que pertencem à Rotina de Orações (ex: índice 0, 9 e 10 baseados na sua lista)
   // Ou você pode ajustar o filtro de acordo com quais índices deseja mostrar aqui.
-  const indicesRotina = [0, 8, 9]; 
+  const indicesRotina = [0, 9, 10]; 
 
   container.innerHTML = indicesRotina
     .map (index => {
@@ -37,8 +37,8 @@ function renderizarDestaques (dados) {
 
       const classes = [
         'card-video-iluminados', // 0
-        'card-video-oculto',     // 8
-        'card-video-daniel'      // 9
+        'card-video-oculto',     // 9
+        'card-video-daniel'      // 10
       ];
       const classe = classes[indicesRotina.indexOf(index)] || 'card-video-iluminados';
 
@@ -68,8 +68,8 @@ function renderizarEfata (dados) {
   const container = document.getElementById ('efata-container');
   if (!container) return;
 
-  // Pegando os itens do Efata (do índice 1 ao 10)
-  const indicesEfata = [1, 2, 3, 4, 5, 6, 7, 10];
+  // Pegando os itens do Efata (do índice 1 ao 8)
+  const indicesEfata = [1, 2, 3, 4, 5, 6, 7, 8];
 
   container.innerHTML = indicesEfata
     .map (index => {
